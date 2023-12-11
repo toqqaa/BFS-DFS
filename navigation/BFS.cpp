@@ -4,45 +4,52 @@ using namespace std;
 #define ROW 5
 #define COL 5
 
-//  priority (up, right, left, down)
 int dRow[] = {-1, 0, 0, 1};
 int dCol[] = {0, 1, -1, 0};
 
-// if a cell is be visited or not
 bool cellisvisited(bool vis[][COL], int row, int col, int grid[][COL])
 {
-    
     if (row < 0 || col < 0 || row >= ROW || col >= COL)
         return false;
 
-    // If cell is already visited or is an obstacle
     if (vis[row][col] || grid[row][col] == -1)
         return false;
 
-    
     return true;
+}
+
+void ShortPath(vector<pair<int, int>> &path, int grid[][COL])
+{
+    cout << "Shortest path:";
+    for (const auto &point : path)
+    {
+        int cellNumber = point.first * COL + point.second + 1;
+        cout << " " << cellNumber;
+    }
+    cout << endl;
 }
 
 void BFS(int grid[][COL], bool vis[][COL], pair<int, int> start, pair<int, int> goal)
 {
-    queue<pair<int, int>> q;
+    queue<vector<pair<int, int>>> q;
 
-    q.push(start);
+    vector<pair<int, int>> initialPath = {start};
+    q.push(initialPath);
     vis[start.first][start.second] = true;
 
     while (!q.empty())
     {
-        pair<int, int> cell = q.front();
-        int x = cell.first;
-        int y = cell.second;
-
-        cout << grid[x][y] << " ";
-
+        vector<pair<int, int>> path = q.front();
+        pair<int, int> current = path.back();
         q.pop();
+
+        int x = current.first;
+        int y = current.second;
 
         if (x == goal.first && y == goal.second)
         {
             cout << "\nThe Goal is reached\n";
+            ShortPath(path, grid);
             return;
         }
 
@@ -53,7 +60,9 @@ void BFS(int grid[][COL], bool vis[][COL], pair<int, int> start, pair<int, int> 
 
             if (cellisvisited(vis, adjx, adjy, grid))
             {
-                q.push({adjx, adjy});
+                vector<pair<int, int>> newPath = path;
+                newPath.push_back({adjx, adjy});
+                q.push(newPath);
                 vis[adjx][adjy] = true;
             }
         }
@@ -61,7 +70,6 @@ void BFS(int grid[][COL], bool vis[][COL], pair<int, int> start, pair<int, int> 
 
     cout << "\nThe Goal is not reached\n";
 }
-
 
 int main()
 {
@@ -72,13 +80,9 @@ int main()
         {-1, 17, 18, 19, -1},
         {-1, 22, -1, -1, 25}};
 
-    // Start point
     pair<int, int> start = {3, 1};
-
-    // goal point
     pair<int, int> goal = {0, 1};
 
-    
     bool vis[ROW][COL];
     memset(vis, false, sizeof vis);
 
@@ -86,3 +90,4 @@ int main()
 
     return 0;
 }
+
