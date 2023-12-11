@@ -6,14 +6,19 @@ The algorithms are applied to a 2D grid representing a maze or terrain, finding 
 
 The BFS algorithm is implemented to traverse a grid, considering only horizontal and vertical movements with a specified movement priority (up, right, left, down)).
 It starts from a specified starting point and explores neighboring cells in layers, ensuring the shortest path to the goal is found.
-The Output of BFS.cpp
+The output of BFS.cpp of the shortest path :
+![bfsshortest](https://github.com/toqqaa/BFS-DFS/assets/145803764/f46b4f2d-a641-4d3a-af7e-9e86ea0e6bfa)
+
+The Output of BFS.cpp of the steps to research:
 ![BFS](https://github.com/toqqaa/BFS-DFS/assets/145803764/08d9347d-0e77-41ab-8636-1453a0d8eaff)
 
 
 ## DFS Algorithm
 
 The DFS algorithm is implemented to traverse the grid with a specified movement priority (up, right, left, down). It starts from a specified starting point and explores as far as possible along each branch before backtracking.
-The Output of BFS.cpp
+The output of DFS.cpp of the shortest path :
+![dfsshortest](https://github.com/toqqaa/BFS-DFS/assets/145803764/19415549-1e65-47ab-9bb9-f3af584475bd)
+The Output of DFS.cpp of the steps to research:
 ![DFS](https://github.com/toqqaa/BFS-DFS/assets/145803764/0b28ac54-9992-4aa8-92c7-3b4eceabe536)
 
 Given input matrix with obstacles represented by -1
