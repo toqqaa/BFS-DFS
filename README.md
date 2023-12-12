@@ -1,7 +1,14 @@
+
+
 # BFS and DFS Algorithms
 
 This repository contains implementations of Breadth-First Search (BFS) and Depth-First Search (DFS) algorithms in C++.
-The algorithms are applied to a 2D grid representing a maze or terrain, finding the shortest path between specified start and end points.
+The algorithms are applied to a (5x5) grid representing a maze or terrain, finding the shortest path between specified start and end points.
+## Table of Contents
+
+- [BFS Algorithm]
+- [DFS Algorithm]
+- [Usage]
 ## BFS Algorithm
 
 The BFS algorithm is implemented to traverse a grid, considering only horizontal and vertical movements with a specified movement priority (up, right, left, down)).
@@ -37,6 +44,15 @@ Clone the repository:
    ```bash
    git clone https://github.com/toqqaa/BFS-DFS.git
    cd BFS-DFS
+## How to Run
+
+3. Compile the code using the following command:
+ For BFS code :
+   g++ -o BFS BFS.CPP
+   ./BFS
+For DFS code :
+   g++ -o DFS DFS.CPP
+   ./DFS
 
 
 
